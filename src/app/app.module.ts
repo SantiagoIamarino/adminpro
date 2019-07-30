@@ -2,16 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // Routes
-
 import { APP_ROUTING } from './app.routes';
 
 // Modules
 import { PagesModule } from './pages/pages.module';
 
+// Services
+import { ServicesModule } from './services/services.module';
+
 import { AppComponent } from './app.component';
-// import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { RegisterComponent } from './login/register/register.component';
   imports: [
     BrowserModule,
     APP_ROUTING,
-    PagesModule
+    PagesModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
