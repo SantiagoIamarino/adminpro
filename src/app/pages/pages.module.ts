@@ -14,6 +14,8 @@ import { PagesComponent } from './pages.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromisesComponent } from './promises/promises.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 
@@ -25,7 +27,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         Graphics1Component,
         IncrementadorComponent,
         GraficoDonaComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromisesComponent,
+        RxjsComponent
     ],
     exports: [
         DashboardComponent,
