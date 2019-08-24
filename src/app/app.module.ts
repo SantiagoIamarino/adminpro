@@ -7,12 +7,16 @@ import { APP_ROUTING } from './app.routes';
 // Modules
 import { PagesModule } from './pages/pages.module';
 
+//Temporal
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Services
 import { ServicesModule } from './services/services.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register/register.component';
+
 
 
 
@@ -27,7 +31,9 @@ import { RegisterComponent } from './login/register/register.component';
     BrowserModule,
     APP_ROUTING,
     PagesModule,
-    ServicesModule
+    ServicesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

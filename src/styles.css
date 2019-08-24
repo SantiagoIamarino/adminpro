@@ -1,3 +1,6 @@
-#themecolors a{
+#themecolors a, .pointer{
     cursor: pointer;
+}
+.pointer:hover{
+    color:white;
 }
