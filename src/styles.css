@@ -4,3 +4,10 @@
 .pointer:hover{
     color:white;
 }
+.w150{
+    width: 150px;
+    margin-bottom: 20px;
+    vertical-align: top;
+    border-radius: 5px;
+    text-align: center;
+}

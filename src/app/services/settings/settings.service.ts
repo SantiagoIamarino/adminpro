@@ -18,9 +18,6 @@ export class SettingsService {
   loadSettings(){
     if( localStorage.getItem( 'theme' ) ){
       this.settings = JSON.parse( localStorage.getItem('theme') );
-      console.log('Existe');
-    }else{
-      console.log('Default');
     }
   }
 

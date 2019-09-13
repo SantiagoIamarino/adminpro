@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { UploadFileService } from '../upload-file/upload-file.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,11 @@ export class UserService {
   user: User;
   token: string;
 
-  constructor( private http: HttpClient, public router: Router ) { 
+  constructor( 
+    private http: HttpClient, 
+    public router: Router,
+    public _uploadFileService: UploadFileService
+  ) { 
     this.getStorage();
   }
 
@@ -101,6 +106,47 @@ export class UserService {
     localStorage.removeItem('user');
     
     this.router.navigate(['/login']);
+
+  }
+
+  updateUser( user: User ){
+    let url = SERVICES_URL + '/users/' + this.user._id;
+    url += '?token=' + this.token;
+  
+    return this.http.put( url, user ).pipe(
+      map( (res: any) =>{
+
+        const userDB: User = res.user;
+        
+        this.saveInStorage( userDB._id, this.token, userDB );
+        swal('User updated correctly', userDB.name, 'success');
+
+        return true;
+
+      })
+    );
+
+  }
+
+  updateImage( image: File ){
+
+    this._uploadFileService.uploadFile( image, 'user', this.user._id )
+      .then( (res: any) =>{
+        
+        swal('Image updated correctly', this.user.name, 'success');
+
+        const imgUrl = res.model.img.split('/');
+        const imgPath = imgUrl[imgUrl.length - 1];
+
+        this.user.img = imgPath;
+
+        this.saveInStorage( this.user._id, this.token, this.user );
+
+      }).catch( err =>{
+
+        console.log(err);
+
+      } );
 
   }
 

@@ -10,14 +10,15 @@ import { PagesModule } from './pages/pages.module';
 //Temporal
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//Pipes Module
+import { PipesModule } from './pipes/pipes.module';
+
 // Services
 import { ServicesModule } from './services/services.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register/register.component';
-
-
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { RegisterComponent } from './login/register/register.component';
     PagesModule,
     ServicesModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
