@@ -52,7 +52,6 @@ export class ProfileComponent implements OnInit {
       this.tempImg = reader.result;
     };
   
-
   }
 
   updateImage(  ){

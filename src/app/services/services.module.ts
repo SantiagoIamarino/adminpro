@@ -7,7 +7,8 @@ import {
   SharedService, 
   SidebarService,
   UserService,
-  UploadFileService
+  UploadFileService,
+  UploadModalService
 } from './services.index';
 
 @NgModule({
@@ -21,7 +22,8 @@ import {
     SidebarService,
     SharedService,
     UserService,
-    UploadFileService
+    UploadFileService,
+    UploadModalService
   ]
 })
 export class ServicesModule { }

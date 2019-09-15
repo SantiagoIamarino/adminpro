@@ -18,6 +18,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './maintenance/users/users.component';
+import { UploadModalComponent } from '../components/upload-modal/upload-modal.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ProfileComponent } from './profile/profile.component';
         AccountSettingsComponent,
         PromisesComponent,
         RxjsComponent,
-        ProfileComponent
+        ProfileComponent,
+        UsersComponent,
+        UploadModalComponent
     ],
     exports: [
         DashboardComponent,

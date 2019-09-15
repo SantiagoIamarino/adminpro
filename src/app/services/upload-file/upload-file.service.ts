@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { resolve } from 'dns';
 import { SERVICES_URL } from '../../config/config';
 
 @Injectable({

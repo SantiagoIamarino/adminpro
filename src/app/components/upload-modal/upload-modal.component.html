@@ -1,0 +1,28 @@
+<div class="bg-black animated fadeIn" [ngClass]="_uploadModalService.hiddenOrVisible">
+  <div class="modal" style='display:block' tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update image</h5>
+          <button (click)="_uploadModalService.hiddenOrVisible = 'hidden'" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+
+          <img *ngIf="_uploadModalService.lastImg && _uploadModalService.tempImg === null" 
+              [src]="_uploadModalService.lastImg | images" class="w150 a" alt="">
+
+          <img *ngIf="_uploadModalService.tempImg" [src]="_uploadModalService.tempImg" 
+                class="w150 b" alt="">
+
+          <input style="width: 100%" (change)="newImage( $event )" type="file">
+        </div>
+        <div class="modal-footer">
+          <button (click)="_uploadModalService.closeModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button [disabled]="!imageToUpload" (click)="uploadImage()" type="button" class="btn btn-primary">Upload image</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

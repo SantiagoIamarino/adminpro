@@ -110,7 +110,7 @@ export class UserService {
   }
 
   updateUser( user: User ){
-    let url = SERVICES_URL + '/users/' + this.user._id;
+    let url = SERVICES_URL + '/users/' + user._id;
     url += '?token=' + this.token;
   
     return this.http.put( url, user ).pipe(
@@ -118,7 +118,10 @@ export class UserService {
 
         const userDB: User = res.user;
         
-        this.saveInStorage( userDB._id, this.token, userDB );
+        if(user._id === this.user._id){  
+          this.saveInStorage( userDB._id, this.token, userDB );
+        }
+
         swal('User updated correctly', userDB.name, 'success');
 
         return true;
@@ -147,6 +150,34 @@ export class UserService {
         console.log(err);
 
       } );
+
+  }
+
+  getAllUsers( since: number = 0 ){
+    
+    const url = SERVICES_URL + '/users?since=' + since;
+
+    return this.http.get( url );
+
+  }
+
+  searchUsers( term: string ){
+
+    const url = SERVICES_URL + '/search/collection/user/' + term;
+
+    return this.http.get( url );
+    
+  }
+
+  deleteUser( id: string ){
+
+    let url = SERVICES_URL + '/users/' + id;
+    url +=  '?token=' + this.token;
+
+    return this.http.delete( url ).pipe( map( res =>{
+        swal('User deleted', 'User has been deleted correctle', 'success');
+        return true;
+    } ) );
 
   }
 

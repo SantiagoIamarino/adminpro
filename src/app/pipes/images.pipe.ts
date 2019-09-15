@@ -18,7 +18,12 @@ export class ImagesPipe implements PipeTransform {
       return img;
     }
 
-    url = url + '/' + type + '/' + img;
+    //Obteniendo ultima /
+    let newImg = img.split('/');
+    newImg = newImg[newImg.length - 1];
+
+
+    url = url + '/' + type + '/' + newImg;
 
     return url;
   }
