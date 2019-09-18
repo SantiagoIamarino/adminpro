@@ -15,6 +15,7 @@ export class UploadModalService {
   lastImg = 'xxx';
   tempImg: any = null;
   id: string;
+  type = 'user';
 
   public notification = new EventEmitter();
 
@@ -22,12 +23,13 @@ export class UploadModalService {
     public _uploadFileService: UploadFileService
   ) { }
 
-  openModal(id: string, img: string){
+  openModal(id: string, img: string, type: string){
     if(img){
       this.lastImg = img;
     }
     this.hiddenOrVisible = 'visible';
     this.id = id;
+    this.type = type;
   }
 
   closeModal(){
@@ -35,10 +37,11 @@ export class UploadModalService {
     this.id = null;
     this.hiddenOrVisible = 'hidden';
     this.tempImg = null;
+    this.type = null;
   }
 
   uploadImage(file: File){
-    this._uploadFileService.uploadFile(file, 'user', this.id).then( res =>{
+    this._uploadFileService.uploadFile(file, this.type, this.id).then( res =>{
 
       this.lastImg = 'xxx';
       this.id = null;

@@ -1,0 +1,74 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <input #search (keyup)="searchHospitals(search.value)" type="text"
+               class="form-control" placeholder="Find hospitals">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn">
+
+  <div *ngIf='loading' class="col-sm-12">
+    <div class="alert alert-warning text-center">
+      <strong>Loading..</strong>
+      <br>
+      <i class='fa fa-refresh fa-spin fa-2x'></i>
+      <br>
+      <span>Please wait</span>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf='!loading' class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="add-hospital text-right">
+          <button (click)="newHospital()" class='btn btn-primary mb-4 '>
+            <i class='fa fa-plus'></i>
+            New Hospital
+          </button>
+        </div>
+
+        <h3 class='card-title'>TotalHospitals: ( <small>{{ totalHospitals }}</small> )</h3>
+
+        <table class='table table-hover'>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let hospital of hospitals'>
+              <td style='width: 15%'>
+                <img (click)="changeImage(hospital._id, hospital.img)" style="width: 50px" class='img-circle pointer'
+                     [src]="hospital.img | images:'hospital'" alt="">
+              </td>
+              <td style='width: 50%'>
+                <input #hospName [(ngModel)]="hospital.name" name="name" type="text" class="form-control">
+              </td>
+              <td style='width: 25%'>
+                <button (click)="updateHospital(hospName.value, hospital._id)" class="btn btn-primary mr-2">
+                  <i class="fa fa-save"></i>
+                </button>
+                <button (click)="deleteHospital(hospital._id)" class="btn btn-danger">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+

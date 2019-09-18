@@ -11,6 +11,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { UsersComponent } from './maintenance/users/users.component';
+import { HospitalComponent } from './maintenance/hospital/hospital.component';
+import { MedicsComponent } from './maintenance/medics/medics.component';
+import { MedicComponent } from './medic/medic.component';
 
 
 const PagesRoutes: Routes = [
@@ -26,9 +29,12 @@ const PagesRoutes: Routes = [
             { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
             { path: 'promises', component: PromisesComponent, data: { title: 'Promises' } },
             { path: 'rxjs', component: RxjsComponent, data: { title: 'RXJS' } },
+            { path: 'medic/:id', component: MedicComponent, data: { title: 'Medic profile' } },
 
             //Maintenance
             { path: 'users', component: UsersComponent, data: { title: 'Users maintenance' } },
+            { path: 'hospitals', component: HospitalComponent, data: { title: 'Hospitals maintenance' } },
+            { path: 'medics', component: MedicsComponent, data: { title: 'Medics maintenance' } },
 
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
         ]

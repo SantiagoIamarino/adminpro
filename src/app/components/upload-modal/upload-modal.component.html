@@ -11,7 +11,7 @@
         <div class="modal-body text-center">
 
           <img *ngIf="_uploadModalService.lastImg && _uploadModalService.tempImg === null" 
-              [src]="_uploadModalService.lastImg | images" class="w150 a" alt="">
+              [src]="_uploadModalService.lastImg | images: _uploadModalService.type" class="w150 a" alt="">
 
           <img *ngIf="_uploadModalService.tempImg" [src]="_uploadModalService.tempImg" 
                 class="w150 b" alt="">

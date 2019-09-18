@@ -46,7 +46,7 @@
           <tbody>
             <tr *ngFor='let user of users'>
               <td style='width: 50px'>
-                <img (click)="_uploadModalService.openModal(user._id, user.img)" style="width: 50px" class='img-circle pointer'
+                <img (click)="_uploadModalService.openModal(user._id, user.img, 'user')" style="width: 50px" class='img-circle pointer'
                      [src]="user.img | images" alt="">
               </td>
               <td>{{ user.email }}</td>

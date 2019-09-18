@@ -20,6 +20,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './maintenance/users/users.component';
 import { UploadModalComponent } from '../components/upload-modal/upload-modal.component';
+import { HospitalComponent } from './maintenance/hospital/hospital.component';
+import { MedicComponent } from './medic/medic.component';
+import { MedicsComponent } from './maintenance/medics/medics.component';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { UploadModalComponent } from '../components/upload-modal/upload-modal.co
         RxjsComponent,
         ProfileComponent,
         UsersComponent,
-        UploadModalComponent
+        UploadModalComponent,
+        HospitalComponent,
+        MedicComponent,
+        MedicsComponent
     ],
     exports: [
         DashboardComponent,

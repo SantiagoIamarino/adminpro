@@ -1,0 +1,77 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <input #search (keyup)="searchMedics(search.value)" type="text"
+               class="form-control" placeholder="Find medics">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row animated fadeIn">
+
+  <div *ngIf='loading' class="col-sm-12">
+    <div class="alert alert-warning text-center">
+      <strong>Loading..</strong>
+      <br>
+      <i class='fa fa-refresh fa-spin fa-2x'></i>
+      <br>
+      <span>Please wait</span>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf='!loading' class="row animated fadeIn">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="add-hospital text-right">
+          <button [routerLink]="['/medic', 'new']" class='btn btn-primary mb-4 '>
+            <i class='fa fa-plus'></i>
+            New Medic
+          </button>
+        </div>
+
+        <h3 class='card-title'>TotalMedics: ( <small>{{ totalMedics }}</small> )</h3>
+
+        <table class='table table-hover'>
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Hospital</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let medic of medics'>
+              <td>
+                <img *ngIf="medic.img" class='img-circle img-fluid' style="width: 50px"
+                     [src]="medic.img | images:'medic'" alt="">
+
+                <img class='img-circle img-fluid' *ngIf="!medic.img" 
+                     [src]="'xxx' | images" alt="" style="width: 50px">
+              </td>
+              <td>{{ medic.name }}</td>
+              <td>{{ medic.hospital?.name }}</td>
+              <td>
+                <button (click)="updateMedic(medic._id)" class="btn btn-primary mr-2">
+                  <i class="fa fa-edit"></i>
+                </button>
+                <button (click)="deleteMedic(medic._id)" class="btn btn-danger">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
