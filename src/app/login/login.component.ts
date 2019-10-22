@@ -32,6 +32,10 @@ export class LoginComponent implements OnInit {
         rememberMe: new FormControl(this.remember)
       });
 
+      if(this._us.user){
+        this.router.navigate(['/dashboard']);
+      }
+
    }
 
   ngOnInit() {

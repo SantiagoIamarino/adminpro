@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchService } from './search/search.service';
 
 import { 
   SettingsService, 
@@ -25,7 +26,8 @@ import {
     UserService,
     UploadFileService,
     UploadModalService,
-    HospitalService
+    HospitalService,
+    SearchService
   ]
 })
 export class ServicesModule { }
